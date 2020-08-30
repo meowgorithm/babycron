@@ -23,8 +23,8 @@ babycron '* */6 * * *' 'cat /data/dump.rdb | gzip | pipedream -b backups -p back
 
 Note that if you’re running a script you *must* include the interpreter in the
 second argument (i.e. `sh` or `/bin/sh`), regardless if you have a `#!` and
-executable permissions. Additionally, Babycron will find program in
-your `PATH`, so simply `bash` or `sh` is usually fine.
+executable permissions. Babycron will search your `PATH`, so things like `bash`
+or `sh`, without the full path to the interpreter, is usually fine.
 
 In Docker:
 
@@ -42,7 +42,7 @@ macOS and Linux users can use Homebrew:
 brew install meowgoritm/tap/babycron
 ```
 
-Additional binaries (Linux x86_64/ARM, macOS, Windows) can be from the [releases](https://github.com/meowgorithm/babycron/releases) page.
+Additional binaries can be found on the [releases](https://github.com/meowgorithm/babycron/releases) page (Linux x86_64/ARM, macOS x86_64, Windows x86_64/i386).
 
 Or just use `go get`:
 
