@@ -1,8 +1,8 @@
 Babycron
 ========
 
-Run a single cron job in the foreground, outputting sent to stdout. Works
-nicely in Docker.
+Run a single cron job in the foreground, sending output to stdout. Works well
+in Docker.
 
 ## Usage
 
@@ -21,9 +21,8 @@ babycron '* */6 * * *' 'cat /data/dump.rdb | gzip | pipedream -b backups -p back
 
 Note that if you’re running a script you *must* include the interpreter in the
 second argument (i.e. `sh` or `/bin/sh`), regardless if you have a `#!` and
-correct permissions in your script. Additionally, Babycron will find program in
-your `PATH`, so usually `bash` or `sh` is find.
-
+executable permissions. Additionally, Babycron will find program in
+your `PATH`, so simply `bash` or `sh` is usually fine.
 
 In Docker:
 
@@ -31,8 +30,7 @@ In Docker:
 ENTRYPOINT [ "babycron", "*/1 * * * *", "sh path/to/script.sh" ]
 ```
 
-All output and errors are sent to stdout, so they'll appear in your Docker logs.
-
+Output and errors are sent to stdout, so they'll appear in your Docker logs.
 
 ## Installation
 
@@ -42,7 +40,7 @@ macOS and Linux users can use Homebrew:
 brew install meowgoritm/tap/babycron
 ```
 
-Our you can download a binary from the [releases](https://github.com/meowgoritm/babycron/releases) page.
+Additional binaries (Linux x86_64/ARM, macOS, Windows) can be from the [releases](https://github.com/meowgorithm/babycron/releases) page.
 
 Or just use `go get`:
 
