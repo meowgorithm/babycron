@@ -1,6 +1,8 @@
 Babycron
 ========
 
+[![Build Status](https://github.com/meowgorithm/babycron/workflows/build/badge.svg)](https://github.com/meowgorithm/babycron/actions)
+
 Run a single cron job in the foreground, sending output to stdout. Works well
 in Docker.
 
