@@ -21,10 +21,11 @@ var (
 	runOnStart bool
 
 	rootCmd = &cobra.Command{
-		Use:   "babycron [cron expression] [task]",
-		Short: "A cron scheduler for a single task",
-		Args:  cobra.ExactArgs(2),
-		RunE:  execute,
+		Use:     "babycron [cron expression] [task]",
+		Short:   "A cron scheduler for a single task",
+		Example: "  babycron '* */6 * * *' 'sh /backup.sh'\n  babycron -r '30 16 * * *' '/bin/bash /backup'",
+		Args:    cobra.ExactArgs(2),
+		RunE:    execute,
 	}
 
 	subtle = te.Style{}.Foreground(te.ColorProfile().Color("241")).Styled
