@@ -49,8 +49,7 @@ func execute(cmd *cobra.Command, args []string) error {
 	report("Babycron running...")
 	c.Start()
 
-	for {
-	}
+	select {}
 }
 
 func runJob(argString string) {
