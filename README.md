@@ -39,7 +39,7 @@ Output and errors are sent to stdout, so they'll appear in your Docker logs.
 macOS and Linux users can use Homebrew:
 
 ```bash
-brew install meowgoritm/tap/babycron
+brew tap meowgorithm && brew install babycron
 ```
 
 Additional binaries can be found on the [releases](https://github.com/meowgorithm/babycron/releases) page (Linux x86_64/ARM, macOS x86_64, Windows x86_64/i386).
