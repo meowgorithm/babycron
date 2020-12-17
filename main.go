@@ -23,7 +23,7 @@ var (
 	rootCmd = &cobra.Command{
 		Use:     "babycron [cron expression] [task]",
 		Short:   "A cron scheduler for a single task",
-		Example: "  babycron '* */6 * * *' 'sh /backup.sh'\n  babycron -r '30 16 * * *' '/bin/bash /backup'",
+		Example: "  babycron '0 */6 * * *' 'sh /backup.sh'\n  babycron -r '30 16 * * *' '/bin/bash /backup'",
 		Args:    cobra.ExactArgs(2),
 		RunE:    execute,
 	}

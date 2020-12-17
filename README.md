@@ -15,10 +15,10 @@ Pass two arguments: the cron schedule and a string of the task to run.
 babycron '*/1 * * * *' 'sh path/to/script.sh'
 
 # Run a script on start, and then again every six hours
-babycron --run-on-start '* */6 * * *' 'sh path/to/script.sh'
+babycron --run-on-start '0 */6 * * *' 'sh path/to/script.sh'
 
-# Gzip and backup a Redis DB every six hours
-babycron '* */6 * * *' 'cat /data/dump.rdb | gzip | pipedream -b backups -p backup.rdb.gz'
+# Gzip and backup a Redis DB every day at midnight
+babycron '0 0 * * *' 'cat /data/dump.rdb | gzip | pipedream -b backups -p backup.rdb.gz'
 ```
 
 Note that if you’re running a script you *must* include the interpreter in the
@@ -29,7 +29,7 @@ or `sh`, without the full path to the interpreter, is usually fine.
 In Docker:
 
 ```docker
-ENTRYPOINT [ "babycron", "*/1 * * * *", "sh path/to/script.sh" ]
+ENTRYPOINT [ "babycron", "* * * * *", "sh path/to/script.sh" ]
 ```
 
 Output and errors are sent to stdout, so they'll appear in your Docker logs.
