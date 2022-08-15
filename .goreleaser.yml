@@ -5,28 +5,13 @@ before:
     - go mod download
 
 builds:
-  - id: "linux"
+  - id: "babycron"
     binary: babycron
     ldflags: -s -w -X main.Version={{ .Version }} -X main.CommitSHA={{ .Commit }}
     env:
       - CGO_ENABLED=0
     goos:
       - linux
-    goarch:
-      - amd64
-      - arm64
-      - 386
-      - arm
-    goarm:
-      - 6
-      - 7
-    hooks:
-      post:
-        - upx "{{ .Path }}"
-  - id: "windows"
-    binary: babycron
-    ldflags: -s -w -X main.Version={{ .Version }} -X main.CommitSHA={{ .Commit }}
-    goos:
       - windows
     goarch:
       - amd64
@@ -44,10 +29,6 @@ builds:
     goarch:
       - amd64
       - arm64
-    hooks:
-      post:
-       - upx "{{ .Path }}"
-
 
 archives:
   - id: "default"
